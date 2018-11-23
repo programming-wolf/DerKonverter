@@ -1,4 +1,5 @@
 ﻿using System;
+using Der.Konverter;
 using NUnit.Framework;
 
 namespace ConverterTest
@@ -6,10 +7,10 @@ namespace ConverterTest
     [TestFixture]
     public class ConverterTest
     {
-        [Test]
-        public void Test1()
+        [TestCase(2831, new byte[] {0, 0, 0, 0, 11, 15, 22, 17 })]
+        public void ConvertByteArrayToLong(long number, byte[] numberAsByteArray)
         {
-            Assert.True(true);
+            Assert.That(Converter.ConvertByteArrayToLong(numberAsByteArray), Is.EqualTo(number));
         }
     }
 }
