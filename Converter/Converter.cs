@@ -3,9 +3,15 @@
 
     public static class Converter
     {
-        public static int ConvertToInt(byte[] aBytes)
+        public static long ConvertByteArrayToLong(byte[] array)
         {
-            return 0;
+            long result = 0;
+            var i = 0;
+            for (; i < 6; i++)
+                result = result << 8;
+                result |= array[i];
+
+            return result;
         }
     }
 }
