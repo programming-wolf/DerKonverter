@@ -9,7 +9,7 @@
             if (array != null)
             {
                 var i = 0;
-                for (; i < 6; i++)
+                for (; i < 8; i++)
                 {
                     result = result << 8;
                     result |= array[i];
