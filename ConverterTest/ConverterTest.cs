@@ -1,4 +1,5 @@
-﻿using Der.Konverter;
+﻿using System;
+using Der.Konverter;
 using NUnit.Framework;
 
 namespace ConverterTest
@@ -12,6 +13,13 @@ namespace ConverterTest
         public void ConvertByteArrayToLong(long number, byte[] numberAsByteArray)
         {
             Assert.That(Converter.ConvertByteArrayToLong(numberAsByteArray), Is.EqualTo(number));
+        }
+
+        [TestCase(new byte[] {4, 0, 0, 0, 11, 15, 22, 17, 65, 12})]
+        public void ConvertByteArrayToLong_ExpectException(byte[] numberAsByteArray)
+        {
+            Assert.That(() => Converter.ConvertByteArrayToLong(numberAsByteArray),
+                Throws.Exception.TypeOf<ArgumentOutOfRangeException>());
         }
     }
 }
