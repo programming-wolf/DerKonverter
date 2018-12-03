@@ -14,13 +14,12 @@ namespace Der.Konverter
                     "Array is larger than eight bytes and cannot be converted to a long value!");
             }
 
-
             long result = 0;
 
             if (array != null)
             {
                 var i = 0;
-                for (; i < 8; i++)
+                for (; i < array.Length; i++)
                 {
                     result = result << 8;
                     result |= array[i];
