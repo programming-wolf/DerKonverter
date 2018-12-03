@@ -1,5 +1,8 @@
-﻿namespace Der.Konverter
+using JetBrains.Annotations;
+
+namespace Der.Konverter
 {
+    [PublicAPI]
     public static class Converter
     {
         public static long ConvertByteArrayToLong(byte[] array)
