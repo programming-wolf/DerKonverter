@@ -1,3 +1,4 @@
+﻿using System;
 using JetBrains.Annotations;
 
 namespace Der.Konverter
@@ -7,6 +8,13 @@ namespace Der.Konverter
     {
         public static long ConvertByteArrayToLong(byte[] array)
         {
+            if (array != null && array.Length > 8)
+            {
+                throw new ArgumentOutOfRangeException(nameof(array),
+                    "Array is larger than eight bytes and cannot be converted to a long value!");
+            }
+
+
             long result = 0;
 
             if (array != null)
